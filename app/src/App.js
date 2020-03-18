@@ -5,6 +5,7 @@ import { reducer } from "./reducers/reducer";
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import DataList from './components/DataList';
+import './App.css';
 
 const store = createStore(reducer, applyMiddleware(thunk));
 

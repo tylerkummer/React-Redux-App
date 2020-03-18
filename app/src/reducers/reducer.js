@@ -7,6 +7,7 @@ const initialState = {
 }
 
 export const reducer = (state = initialState, action) => {
+    console.log("Payload: ", action.payload);
     switch(action.type){
         case GET_DATA:
             return {

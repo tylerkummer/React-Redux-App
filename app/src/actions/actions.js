@@ -8,7 +8,7 @@ export const getData = () => dispatch => {
     dispatch({ type: GET_DATA });
     axios.get('https://api.pokemontcg.io/v1/cards')
         .then(res => {
-            console.log(res);
+            console.log("Response", res.data);
             dispatch({type: UPDATE_DATA, payload: res.data})
         })
         .catch(err => {
