@@ -1,8 +1,9 @@
-import { GET_DATA } from "../actions/actions"
+import { GET_DATA, UPDATE_DATA, SET_ERROR } from "../actions/actions"
 
 const initialState = {
     data: [],
-    isFetchingData: false
+    isFetchingData: false,
+    error: ''
 }
 
 export const reducer = (state = initialState, action) => {
@@ -10,8 +11,21 @@ export const reducer = (state = initialState, action) => {
         case GET_DATA:
             return {
                 ...state,
-                isFetchingData: true
-            }
+                isFetchingData: true,
+                data: []
+            };
+        case UPDATE_DATA:
+            return {
+                ...state,
+                data: action.payload,
+                isFetchingData: false
+            };
+        case SET_ERROR:
+            return {
+                ...state,
+                isFetchingData: false,
+                error: action.payload
+            };
         default:
             return state;
     }
